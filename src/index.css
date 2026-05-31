@@ -177,6 +177,10 @@ h3 { font-size: 1.5rem; }
   .analysis-layout,
   .history-sections,
   .grid-2-col,
+  .patient-login-page,
+  .doctor-login-page,
+  .admin-login-page,
+  [class*="login-page"],
   [class*="grid"] {
     display: flex !important;
     flex-direction: column !important;
@@ -188,6 +192,7 @@ h3 { font-size: 1.5rem; }
   .card, 
   .glass-panel, 
   .auth-card,
+  .login-card,
   .history-block,
   .summary-item,
   .meta-box,
