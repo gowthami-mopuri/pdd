@@ -53,7 +53,8 @@ const ImplantSurvival = ({ uploadedImage, imageFile, patientData, onBack }) => {
         formData.append('file', imageFile);
         formData.append('patient_data', JSON.stringify(patientData));
 
-        const response = await fetch('http://localhost:8000/analyze/gemini-survival', {
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+        const response = await fetch(`${API_URL}/analyze/gemini-survival`, {
           method: 'POST',
           body: formData,
         });

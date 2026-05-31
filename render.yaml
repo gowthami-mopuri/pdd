@@ -1,0 +1,23 @@
+services:
+  # Python Backend Service
+  - type: web
+    name: pdd-backend
+    env: python
+    buildCommand: "cd ml-engine && pip install -r requirements.txt"
+    startCommand: "cd ml-engine && python main.py"
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false # Must be set in the Render dashboard manually!
+
+  # React Frontend Service
+  - type: web
+    name: pdd-frontend
+    env: static
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: "./dist"
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: pdd-backend
+          envVarKey: RENDER_EXTERNAL_URL

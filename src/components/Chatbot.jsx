@@ -27,15 +27,18 @@ const Chatbot = ({ patients, selectedPatient }) => {
     setInput('');
     setIsTyping(true);
 
-    const fullPatientData = patients.find(p => p.id?.toString() === selectedPatient?.toString()) || { name: 'No Patient Selected (Tell the user to select a patient from the dropdown)' };
+    const patientData = patients.find(p => p.id?.toString() === selectedPatient?.toString()) || { name: 'No Patient Selected (Tell the user to select a patient from the dropdown)' };
 
     try {
-      const response = await fetch('http://localhost:8000/chat/personalized', {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const response = await fetch(`${API_URL}/analyze/gemini-chat`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
-          patient_data: fullPatientData,
-          messages: newMessages
+          messages: [...messages, userMsg],
+          patient_context: patientData
         })
       });
 
