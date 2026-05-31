@@ -581,3 +581,63 @@
   color: var(--primary-color);
   margin-bottom: 0;
 }
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .profile-header-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .profile-hero {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .profile-title-row {
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .profile-title-row h2 {
+    font-size: 1.75rem;
+  }
+
+  .profile-demographics {
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 1rem;
+  }
+
+  .profile-meta {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .profile-tabs {
+    padding: 0 0.5rem;
+  }
+  
+  .tab-btn {
+    padding: 1rem 0.5rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-2-col {
+    grid-template-columns: 1fr;
+  }
+}
