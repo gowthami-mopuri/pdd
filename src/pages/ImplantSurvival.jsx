@@ -61,7 +61,7 @@ const ImplantSurvival = ({ uploadedImage, imageFile, patientData, onBack }) => {
         });
 
         if (!response.ok) {
-          throw new Error(`Backend error: ${response.status}`);
+          throw new Error(`Backend error: ${response.status} (Tried hitting: ${API_URL}/analyze/gemini-survival)`);
         }
 
         const json = await response.json();
@@ -73,7 +73,7 @@ const ImplantSurvival = ({ uploadedImage, imageFile, patientData, onBack }) => {
         }
       } catch (err) {
         console.error("Gemini AI Error:", err);
-        setError(err.message);
+        setError(`${err.message} (URL: ${API_URL})`);
       } finally {
         clearInterval(interval);
         setProcessingStep(4);
