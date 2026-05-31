@@ -206,22 +206,34 @@ h3 { font-size: 1.5rem; }
   .section-header,
   .profile-header-actions,
   .profile-hero,
-  .profile-title-row {
+  .profile-title-row,
+  .welcome-banner {
+    display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    gap: 1rem !important;
+    gap: 1.5rem !important;
     padding: 1rem !important;
+    height: auto !important;
+  }
+
+  .welcome-banner > div {
+    width: 100% !important;
   }
 
   /* Make actions full width */
   .patient-actions, 
   .section-actions,
-  .header-right {
+  .header-right,
+  .patient-selector-card {
+    display: flex !important;
+    flex-direction: column !important;
     width: 100% !important;
     justify-content: center !important;
+    align-items: stretch !important;
     flex-wrap: wrap !important;
     gap: 0.5rem !important;
+    margin: 0 !important;
   }
 
   /* Adjust typography for mobile */
