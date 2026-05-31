@@ -160,3 +160,102 @@ h3 { font-size: 1.5rem; }
 .text-warning { color: var(--warning-color); }
 .text-danger { color: var(--danger-color); }
 .text-muted { color: var(--text-muted); }
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  /* Layout & Sidebar */
+  .layout {
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    overflow-x: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0;
+  }
+  
+  .logo-container {
+    padding: 0.75rem;
+    border-bottom: none;
+    border-right: 1px solid var(--border-color);
+  }
+  
+  .logo-text {
+    display: none; /* Hide text on mobile for space */
+  }
+  
+  .nav-links {
+    flex-direction: row;
+    padding: 0.5rem;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .nav-item {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+  
+  .nav-item span {
+    display: none; /* Hide text labels, show only icons */
+  }
+
+  .header {
+    padding: 0 1rem;
+    height: 60px;
+  }
+  
+  .header-title {
+    font-size: 1rem;
+  }
+  
+  .user-info {
+    display: none; /* Hide user text */
+  }
+
+  .page-content {
+    padding: 1rem;
+  }
+
+  /* Grids */
+  .dashboard-grid, 
+  .stats-grid, 
+  .form-grid,
+  .analysis-layout {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Forms & Cards */
+  .auth-card {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .patient-header, .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .patient-actions, .section-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  /* Tables */
+  .patients-table-container {
+    overflow-x: auto;
+  }
+  
+  table {
+    min-width: 600px; /* Force table scrolling */
+  }
+}
+

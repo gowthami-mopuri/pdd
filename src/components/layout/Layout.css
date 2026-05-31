@@ -155,3 +155,64 @@
   padding: 2rem;
   background-color: var(--background-light);
 }
+
+/* --- Mobile Responsiveness for Layout --- */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column !important;
+  }
+  
+  .sidebar {
+    width: 100% !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    padding: 0 !important;
+  }
+  
+  .logo-container {
+    padding: 0.75rem !important;
+    border-bottom: none !important;
+    border-right: 1px solid var(--border-color) !important;
+  }
+  
+  .logo-text {
+    display: none !important;
+  }
+  
+  .nav-links {
+    flex-direction: row !important;
+    padding: 0.5rem !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin: 0 !important;
+  }
+  
+  .nav-item {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.8rem !important;
+    white-space: nowrap !important;
+  }
+  
+  .nav-item span {
+    display: none !important;
+  }
+
+  .header {
+    padding: 0 1rem !important;
+    height: 60px !important;
+  }
+  
+  .header-title {
+    font-size: 1rem !important;
+  }
+  
+  .user-info {
+    display: none !important;
+  }
+
+  .page-content {
+    padding: 1rem !important;
+  }
+}
