@@ -1,0 +1,216 @@
+.ai-analysis-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.upload-zone {
+  border: 2px dashed var(--border-color);
+  border-radius: 16px;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--surface-light);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-zone:hover {
+  border-color: var(--primary-color);
+  background: rgba(13, 71, 161, 0.02);
+}
+
+.upload-icon {
+  width: 64px;
+  height: 64px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  color: var(--primary-color);
+}
+
+.preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.image-preview-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: black;
+}
+
+.image-preview {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Re-use scanning animation from PatientProfile, but adapted for the image overlay */
+.scan-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 71, 161, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 10;
+}
+
+.scan-laser {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #00e5ff;
+  box-shadow: 0 0 15px 5px rgba(0, 229, 255, 0.5);
+  animation: laser-scan 2s ease-in-out infinite alternate;
+  z-index: 11;
+}
+
+@keyframes laser-scan {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+.scan-text {
+  background: rgba(0,0,0,0.7);
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  animation: pulse-text 1.5s infinite;
+}
+
+@keyframes pulse-text {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.result-card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.result-item:last-child {
+  border-bottom: none;
+}
+
+/* Patient Selector Styling */
+.patient-selector-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  box-shadow: var(--shadow-sm);
+  min-width: 280px;
+}
+
+.patient-selector-icon {
+  background: rgba(13, 71, 161, 0.1);
+  color: var(--primary-color);
+  padding: 0.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.patient-selector-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.patient-selector-content label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.patient-select-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-color);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.patient-select-input:focus {
+  outline: none;
+}
+
+/* Custom dropdown arrow to replace the ugly default one */
+.patient-selector-content {
+  position: relative;
+}
+
+.patient-selector-content::after {
+  content: "▼";
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  pointer-events: none;
+}

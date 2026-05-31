@@ -1,0 +1,37 @@
+/* src/pages/PatientLogin.css */
+/* Reuses most structure from DoctorLogin styling paradigms but with patient colors */
+.patient-login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top right, rgba(0, 150, 136, 0.1), transparent 50%),
+              radial-gradient(circle at bottom left, rgba(82, 199, 184, 0.1), transparent 50%),
+              var(--background-light);
+  padding: 2rem;
+  position: relative;
+}
+
+.login-card.patient-theme {
+  border-top: 4px solid var(--secondary-color);
+  max-width: 450px;
+  width: 100%;
+}
+
+.patient-icon {
+  background-color: rgba(0, 150, 136, 0.1);
+  color: var(--secondary-color);
+}
+
+.patient-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  width: 100%;
+  padding: 0.875rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.patient-btn:hover:not(:disabled) {
+  background-color: var(--secondary-dark);
+}
