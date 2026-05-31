@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Capacitor } from '@capacitor/core';
 import { MessageSquare, X, Send, User } from 'lucide-react';
 import './Chatbot.css';
 
@@ -30,7 +31,7 @@ const Chatbot = ({ patients, selectedPatient }) => {
     const patientData = patients.find(p => p.id?.toString() === selectedPatient?.toString()) || { name: 'No Patient Selected (Tell the user to select a patient from the dropdown)' };
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const API_URL = import.meta.env.VITE_API_URL || (Capacitor.isNativePlatform() ? 'http://10.0.2.2:8000' : 'http://localhost:8000');
       const response = await fetch(`${API_URL}/analyze/gemini-chat`, {
         method: 'POST',
         headers: {

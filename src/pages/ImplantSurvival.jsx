@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Capacitor } from '@capacitor/core';
 import { 
   Activity, Shield, AlertTriangle, CheckCircle, TrendingUp, 
   FileText, Download, Share2, FileSignature, BrainCircuit,
@@ -53,7 +54,7 @@ const ImplantSurvival = ({ uploadedImage, imageFile, patientData, onBack }) => {
         formData.append('file', imageFile);
         formData.append('patient_data', JSON.stringify(patientData));
 
-        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+        const API_URL = import.meta.env.VITE_API_URL || (Capacitor.isNativePlatform() ? 'http://10.0.2.2:8000' : 'http://localhost:8000');
         const response = await fetch(`${API_URL}/analyze/gemini-survival`, {
           method: 'POST',
           body: formData,
