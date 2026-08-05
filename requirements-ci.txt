@@ -1,0 +1,10 @@
+# Core dependencies for ML Engine
+-r ml-engine/requirements.txt
+
+# Testing frameworks and libraries
+pytest>=7.0.0
+unittest2
+selenium>=4.10.0
+appium-python-client>=3.0.0
+pandas
+openpyxl
