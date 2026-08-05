@@ -1,0 +1,351 @@
+patient_id,name,age,gender,medical_history,status,weight_kg,height_cm
+PT-0001,James Lopez,66,Male,Asthma,Recovery,117,155
+PT-0002,Sarah Taylor,81,Other,Asthma,Recovery,52,174
+PT-0003,David Jackson,40,Female,Heart Disease,Completed,94,191
+PT-0004,Robert Rodriguez,57,Male,None,Recovery,108,182
+PT-0005,Linda Martinez,78,Female,Allergy to Penicillin,Recovery,110,176
+PT-0006,Mary Hernandez,21,Male,Asthma,Consultation,84,153
+PT-0007,Sarah Wilson,28,Male,Previous Implant Failure,Recovery,88,171
+PT-0008,Linda Jackson,65,Other,Diabetes,Consultation,81,185
+PT-0009,John Wilson,60,Other,Heart Disease,Recovery,108,155
+PT-0010,Charles Martinez,46,Male,Heart Disease,Treatment,119,192
+PT-0011,Mary Wilson,82,Other,Diabetes,Consultation,109,194
+PT-0012,Barbara Garcia,55,Other,Asthma,Treatment,94,155
+PT-0013,Charles Anderson,39,Other,Heart Disease,Treatment,96,165
+PT-0014,Jessica Jones,74,Other,Allergy to Penicillin,Treatment,59,179
+PT-0015,Michael Garcia,76,Female,Smoking,Recovery,114,158
+PT-0016,Thomas Taylor,18,Other,Diabetes,Completed,83,152
+PT-0017,Patricia Moore,65,Female,None,Treatment,85,159
+PT-0018,Sarah Miller,21,Male,None,Treatment,63,168
+PT-0019,John Williams,67,Other,Hypertension,Consultation,100,158
+PT-0020,David Anderson,51,Other,None,Recovery,82,159
+PT-0021,Patricia Gonzales,31,Other,Smoking,Consultation,78,181
+PT-0022,Jennifer Johnson,20,Female,Smoking,Consultation,60,158
+PT-0023,Charles Martin,78,Other,Previous Implant Failure,Completed,98,191
+PT-0024,Elizabeth Moore,49,Male,Allergy to Penicillin,Completed,68,191
+PT-0025,Elizabeth Davis,34,Male,Diabetes,Treatment,50,164
+PT-0026,Robert Hernandez,35,Male,Hypertension,Consultation,53,158
+PT-0027,John Jones,33,Female,Previous Implant Failure,Recovery,92,188
+PT-0028,Susan Wilson,81,Female,None,Recovery,96,150
+PT-0029,Thomas Jackson,31,Other,Smoking,Recovery,118,171
+PT-0030,William Anderson,43,Male,Diabetes,Treatment,78,181
+PT-0031,David Martin,21,Other,Smoking,Treatment,117,173
+PT-0032,Karen Hernandez,55,Female,Allergy to Penicillin,Completed,95,151
+PT-0033,Joseph Anderson,83,Male,Heart Disease,Treatment,118,151
+PT-0034,Jessica Thomas,32,Other,Asthma,Completed,78,180
+PT-0035,Jennifer Hernandez,57,Other,None,Completed,115,188
+PT-0036,Michael Garcia,65,Other,Allergy to Penicillin,Completed,54,157
+PT-0037,Barbara Thomas,60,Male,None,Treatment,65,166
+PT-0038,Richard Williams,75,Female,None,Consultation,106,180
+PT-0039,Sarah Martin,49,Other,Previous Implant Failure,Consultation,112,190
+PT-0040,Karen Wilson,45,Female,Heart Disease,Recovery,70,171
+PT-0041,Linda Smith,22,Other,Allergy to Penicillin,Recovery,108,191
+PT-0042,Elizabeth Garcia,38,Other,None,Consultation,61,159
+PT-0043,William Garcia,20,Other,Diabetes,Consultation,116,161
+PT-0044,Jessica Smith,60,Male,None,Completed,95,175
+PT-0045,Elizabeth Smith,21,Other,Hypertension,Consultation,90,176
+PT-0046,David Wilson,75,Female,Previous Implant Failure,Consultation,116,160
+PT-0047,Karen Hernandez,84,Male,Heart Disease,Recovery,58,165
+PT-0048,Linda Williams,71,Female,Diabetes,Consultation,74,172
+PT-0049,Joseph Lopez,62,Other,Hypertension,Treatment,104,155
+PT-0050,Joseph Jackson,43,Other,Heart Disease,Recovery,120,182
+PT-0051,Joseph Anderson,79,Male,Previous Implant Failure,Completed,112,165
+PT-0052,David Lopez,26,Other,Asthma,Treatment,64,186
+PT-0053,Patricia Miller,21,Other,None,Recovery,58,179
+PT-0054,Joseph Anderson,67,Other,Allergy to Penicillin,Consultation,96,190
+PT-0055,Charles Martinez,52,Female,Diabetes,Recovery,60,189
+PT-0056,Mary Johnson,75,Other,Hypertension,Completed,83,171
+PT-0057,John Hernandez,46,Male,Asthma,Completed,120,172
+PT-0058,Sarah Martinez,29,Other,Hypertension,Completed,109,188
+PT-0059,Jennifer Gonzales,24,Other,Smoking,Consultation,64,157
+PT-0060,Susan Rodriguez,85,Other,Diabetes,Completed,88,185
+PT-0061,Robert Thomas,46,Female,Allergy to Penicillin,Recovery,73,151
+PT-0062,Thomas Martinez,33,Female,Allergy to Penicillin,Consultation,87,166
+PT-0063,Elizabeth Miller,85,Other,None,Consultation,76,186
+PT-0064,David Hernandez,29,Male,Smoking,Treatment,71,171
+PT-0065,Joseph Rodriguez,43,Female,None,Consultation,86,175
+PT-0066,Charles Jones,21,Female,Allergy to Penicillin,Completed,54,185
+PT-0067,Joseph Davis,67,Male,Allergy to Penicillin,Recovery,57,159
+PT-0068,David Wilson,55,Female,Heart Disease,Treatment,55,155
+PT-0069,Patricia Gonzales,68,Female,None,Completed,97,171
+PT-0070,William Anderson,19,Other,Heart Disease,Recovery,99,187
+PT-0071,Jennifer Johnson,57,Female,Asthma,Completed,62,187
+PT-0072,Thomas Miller,43,Male,Diabetes,Completed,79,151
+PT-0073,Elizabeth Rodriguez,85,Female,None,Consultation,101,189
+PT-0074,Sarah Rodriguez,39,Male,Heart Disease,Recovery,59,178
+PT-0075,Susan Lopez,71,Female,Previous Implant Failure,Consultation,83,190
+PT-0076,Robert Taylor,20,Female,None,Treatment,87,172
+PT-0077,Karen Miller,48,Male,Previous Implant Failure,Treatment,83,177
+PT-0078,Elizabeth Gonzales,56,Other,Heart Disease,Treatment,77,192
+PT-0079,Jennifer Miller,69,Male,Asthma,Recovery,72,173
+PT-0080,John Brown,41,Female,None,Recovery,72,173
+PT-0081,Barbara Davis,30,Other,Hypertension,Consultation,80,181
+PT-0082,Karen Jackson,38,Other,Previous Implant Failure,Recovery,108,195
+PT-0083,Jessica Davis,19,Other,None,Completed,54,166
+PT-0084,David Hernandez,45,Male,Smoking,Completed,50,195
+PT-0085,Joseph Lopez,21,Male,Previous Implant Failure,Completed,80,176
+PT-0086,Susan Davis,55,Other,Asthma,Treatment,71,184
+PT-0087,Thomas Gonzales,61,Other,Diabetes,Treatment,65,177
+PT-0088,Elizabeth Lopez,71,Other,Asthma,Treatment,117,159
+PT-0089,Jessica Miller,69,Other,Diabetes,Recovery,54,155
+PT-0090,Robert Jackson,34,Male,None,Completed,50,155
+PT-0091,Charles Taylor,65,Other,Heart Disease,Treatment,58,192
+PT-0092,Jessica Davis,51,Other,Hypertension,Recovery,92,177
+PT-0093,Richard Johnson,45,Female,Smoking,Consultation,74,172
+PT-0094,Barbara Gonzales,79,Female,Allergy to Penicillin,Treatment,77,188
+PT-0095,Mary Davis,24,Male,None,Treatment,118,172
+PT-0096,Robert Hernandez,53,Female,Heart Disease,Treatment,117,195
+PT-0097,Richard Johnson,55,Other,Diabetes,Recovery,79,186
+PT-0098,Linda Gonzales,65,Male,Hypertension,Completed,108,172
+PT-0099,Jessica Brown,75,Other,Hypertension,Completed,76,185
+PT-0100,Jennifer Johnson,33,Other,Allergy to Penicillin,Treatment,53,187
+PT-0101,Elizabeth Miller,19,Other,Allergy to Penicillin,Treatment,100,177
+PT-0102,Linda Jackson,60,Other,None,Completed,92,171
+PT-0103,Robert Martinez,70,Other,Smoking,Recovery,84,160
+PT-0104,Sarah Wilson,50,Female,Diabetes,Consultation,95,182
+PT-0105,Charles Wilson,49,Other,Asthma,Treatment,70,178
+PT-0106,James Thomas,59,Female,Asthma,Recovery,51,164
+PT-0107,Linda Wilson,41,Female,Smoking,Completed,78,166
+PT-0108,Susan Jackson,38,Male,Allergy to Penicillin,Completed,99,155
+PT-0109,Robert Gonzales,53,Other,None,Recovery,60,178
+PT-0110,Robert Anderson,43,Male,None,Treatment,96,189
+PT-0111,Michael Wilson,24,Male,Diabetes,Treatment,53,167
+PT-0112,Thomas Anderson,64,Female,Asthma,Treatment,51,193
+PT-0113,David Jackson,38,Female,Hypertension,Consultation,79,186
+PT-0114,William Gonzales,54,Male,Asthma,Consultation,105,176
+PT-0115,Michael Gonzales,25,Other,Allergy to Penicillin,Recovery,77,175
+PT-0116,Joseph Martinez,20,Male,Diabetes,Recovery,91,183
+PT-0117,Joseph Martinez,21,Male,None,Treatment,84,173
+PT-0118,Patricia Anderson,21,Other,Previous Implant Failure,Recovery,86,178
+PT-0119,Jennifer Gonzales,75,Male,None,Consultation,51,170
+PT-0120,Barbara Garcia,50,Other,Hypertension,Recovery,107,195
+PT-0121,Mary Jones,74,Other,Hypertension,Treatment,51,185
+PT-0122,Susan Lopez,79,Other,Smoking,Treatment,116,156
+PT-0123,John Wilson,70,Male,Smoking,Consultation,68,180
+PT-0124,Sarah Johnson,72,Other,Asthma,Treatment,54,181
+PT-0125,Sarah Jackson,81,Male,None,Treatment,65,174
+PT-0126,John Taylor,76,Male,Heart Disease,Consultation,60,186
+PT-0127,Jessica Hernandez,69,Other,Smoking,Consultation,109,192
+PT-0128,Sarah Moore,63,Male,Asthma,Treatment,83,174
+PT-0129,Elizabeth Brown,45,Other,Diabetes,Consultation,116,163
+PT-0130,Susan Rodriguez,58,Other,Hypertension,Treatment,72,163
+PT-0131,Richard Martin,52,Male,Hypertension,Consultation,58,195
+PT-0132,Elizabeth Hernandez,83,Female,Hypertension,Consultation,110,174
+PT-0133,Michael Hernandez,78,Other,Smoking,Completed,94,151
+PT-0134,Linda Miller,82,Other,None,Recovery,67,194
+PT-0135,Sarah Brown,25,Female,Asthma,Completed,66,160
+PT-0136,Jessica Moore,78,Female,Previous Implant Failure,Completed,72,165
+PT-0137,Richard Miller,74,Other,Smoking,Completed,105,185
+PT-0138,Thomas Hernandez,40,Female,Asthma,Consultation,93,175
+PT-0139,Karen Davis,21,Other,None,Consultation,120,154
+PT-0140,Jennifer Moore,41,Other,Smoking,Consultation,89,188
+PT-0141,Robert Smith,38,Male,Hypertension,Consultation,104,187
+PT-0142,James Hernandez,21,Female,Previous Implant Failure,Treatment,89,154
+PT-0143,David Gonzales,84,Female,Heart Disease,Consultation,71,172
+PT-0144,Jennifer Taylor,58,Female,Diabetes,Recovery,78,188
+PT-0145,Mary Rodriguez,56,Male,Smoking,Treatment,80,177
+PT-0146,Richard Taylor,28,Female,Previous Implant Failure,Recovery,109,193
+PT-0147,Joseph Brown,24,Male,Allergy to Penicillin,Completed,119,194
+PT-0148,James Lopez,18,Female,Hypertension,Treatment,89,155
+PT-0149,John Taylor,64,Male,Asthma,Consultation,80,163
+PT-0150,Thomas Smith,83,Other,Hypertension,Completed,85,155
+PT-0151,Elizabeth Lopez,61,Female,Previous Implant Failure,Recovery,90,170
+PT-0152,Jessica Garcia,39,Female,None,Completed,68,162
+PT-0153,Richard Jackson,65,Male,Smoking,Recovery,69,153
+PT-0154,Elizabeth Anderson,78,Female,Asthma,Recovery,118,189
+PT-0155,Robert Martinez,39,Female,Heart Disease,Treatment,91,184
+PT-0156,Linda Hernandez,39,Female,Previous Implant Failure,Consultation,95,160
+PT-0157,David Thomas,56,Female,Hypertension,Treatment,112,187
+PT-0158,Charles Lopez,81,Other,Allergy to Penicillin,Completed,99,186
+PT-0159,Barbara Williams,44,Male,Asthma,Recovery,109,184
+PT-0160,Sarah Jackson,21,Other,None,Completed,70,163
+PT-0161,Jennifer Lopez,20,Other,Smoking,Completed,50,174
+PT-0162,Linda Jackson,78,Other,None,Consultation,120,191
+PT-0163,Barbara Hernandez,35,Other,Previous Implant Failure,Completed,114,181
+PT-0164,Elizabeth Brown,50,Female,None,Consultation,59,183
+PT-0165,Jessica Smith,20,Male,Smoking,Consultation,81,173
+PT-0166,William Hernandez,19,Other,Allergy to Penicillin,Completed,71,172
+PT-0167,Richard Anderson,44,Female,None,Recovery,76,169
+PT-0168,John Taylor,45,Female,Heart Disease,Completed,68,156
+PT-0169,Linda Thomas,62,Female,Heart Disease,Completed,69,153
+PT-0170,Jennifer Moore,46,Female,Previous Implant Failure,Recovery,110,156
+PT-0171,Robert Martinez,21,Female,None,Treatment,60,155
+PT-0172,Michael Miller,47,Female,None,Completed,64,185
+PT-0173,Elizabeth Wilson,54,Male,Asthma,Completed,97,178
+PT-0174,Susan Lopez,73,Other,Diabetes,Completed,60,175
+PT-0175,Jessica Thomas,53,Female,Asthma,Recovery,74,181
+PT-0176,Elizabeth Lopez,33,Other,None,Consultation,120,177
+PT-0177,John Hernandez,29,Other,Asthma,Recovery,67,156
+PT-0178,John Martinez,61,Male,Heart Disease,Completed,116,189
+PT-0179,John Williams,41,Male,Heart Disease,Consultation,64,164
+PT-0180,Patricia Smith,31,Other,Diabetes,Treatment,69,158
+PT-0181,Sarah Williams,55,Male,Allergy to Penicillin,Consultation,89,174
+PT-0182,Susan Smith,33,Other,None,Consultation,64,183
+PT-0183,Joseph Miller,37,Other,Hypertension,Completed,73,162
+PT-0184,Michael Martin,30,Male,Smoking,Completed,99,175
+PT-0185,Thomas Moore,20,Male,Previous Implant Failure,Completed,54,188
+PT-0186,David Anderson,49,Other,Asthma,Consultation,77,155
+PT-0187,Michael Hernandez,60,Female,Previous Implant Failure,Recovery,71,194
+PT-0188,Robert Thomas,50,Other,Heart Disease,Treatment,60,170
+PT-0189,Thomas Williams,38,Female,Hypertension,Completed,93,192
+PT-0190,William Taylor,85,Other,Asthma,Consultation,58,174
+PT-0191,Patricia Jackson,80,Female,Allergy to Penicillin,Treatment,81,195
+PT-0192,David Williams,28,Other,Smoking,Consultation,67,189
+PT-0193,Michael Williams,55,Other,Asthma,Consultation,89,183
+PT-0194,Barbara Jackson,79,Other,Diabetes,Completed,91,192
+PT-0195,Richard Moore,38,Other,None,Consultation,119,185
+PT-0196,James Taylor,72,Male,Previous Implant Failure,Recovery,56,180
+PT-0197,Karen Taylor,77,Female,Previous Implant Failure,Recovery,87,192
+PT-0198,David Smith,56,Other,Hypertension,Treatment,72,177
+PT-0199,Linda Miller,46,Female,Previous Implant Failure,Treatment,99,179
+PT-0200,Susan Davis,46,Other,Diabetes,Completed,116,161
+PT-0201,Charles Williams,24,Male,Asthma,Completed,69,190
+PT-0202,James Martinez,38,Male,Asthma,Consultation,116,165
+PT-0203,James Rodriguez,79,Other,None,Completed,55,155
+PT-0204,Susan Gonzales,80,Male,Diabetes,Consultation,118,181
+PT-0205,David Taylor,44,Female,Previous Implant Failure,Recovery,97,177
+PT-0206,Susan Brown,63,Female,None,Recovery,92,171
+PT-0207,Michael Smith,65,Other,Hypertension,Treatment,119,174
+PT-0208,Jessica Johnson,62,Other,None,Completed,105,179
+PT-0209,Joseph Brown,24,Female,Allergy to Penicillin,Completed,108,194
+PT-0210,Mary Williams,46,Female,Asthma,Consultation,79,188
+PT-0211,Elizabeth Wilson,63,Male,Heart Disease,Recovery,50,172
+PT-0212,Sarah Miller,54,Male,None,Completed,75,194
+PT-0213,Sarah Martinez,29,Female,Heart Disease,Treatment,109,150
+PT-0214,Jessica Davis,29,Female,Asthma,Completed,73,172
+PT-0215,Patricia Brown,56,Male,Diabetes,Consultation,81,156
+PT-0216,Elizabeth Gonzales,74,Female,Asthma,Consultation,109,187
+PT-0217,Susan Gonzales,36,Other,Heart Disease,Recovery,79,184
+PT-0218,Charles Taylor,66,Male,Asthma,Treatment,61,181
+PT-0219,Linda Lopez,66,Female,None,Treatment,63,192
+PT-0220,John Jones,23,Male,Heart Disease,Consultation,99,159
+PT-0221,Elizabeth Smith,52,Female,Hypertension,Treatment,100,163
+PT-0222,Robert Jones,68,Other,Asthma,Treatment,96,174
+PT-0223,Thomas Taylor,29,Female,Smoking,Recovery,105,171
+PT-0224,Jennifer Garcia,24,Female,Previous Implant Failure,Recovery,109,169
+PT-0225,Linda Johnson,62,Male,Hypertension,Completed,86,194
+PT-0226,Sarah Taylor,41,Male,Hypertension,Recovery,83,188
+PT-0227,Patricia Lopez,65,Female,Diabetes,Consultation,110,188
+PT-0228,Susan Rodriguez,39,Female,Smoking,Consultation,95,158
+PT-0229,Patricia Smith,20,Male,Diabetes,Treatment,102,170
+PT-0230,Karen Wilson,44,Other,Asthma,Consultation,70,193
+PT-0231,William Rodriguez,62,Male,Smoking,Recovery,100,187
+PT-0232,Sarah Moore,73,Other,Asthma,Treatment,69,176
+PT-0233,Charles Moore,42,Male,Hypertension,Completed,112,183
+PT-0234,Karen Martinez,69,Female,Previous Implant Failure,Treatment,104,172
+PT-0235,Joseph Gonzales,55,Female,Diabetes,Recovery,109,187
+PT-0236,Robert Jackson,27,Female,Previous Implant Failure,Consultation,101,158
+PT-0237,Jessica Anderson,84,Female,Heart Disease,Consultation,99,153
+PT-0238,Karen Miller,82,Female,Previous Implant Failure,Recovery,65,163
+PT-0239,Karen Brown,31,Male,None,Completed,83,159
+PT-0240,Elizabeth Taylor,20,Female,Heart Disease,Treatment,64,170
+PT-0241,William Brown,28,Female,Previous Implant Failure,Treatment,65,188
+PT-0242,Patricia Moore,85,Other,Heart Disease,Consultation,107,165
+PT-0243,Michael Miller,33,Male,Diabetes,Completed,90,185
+PT-0244,Barbara Miller,81,Other,Asthma,Consultation,55,166
+PT-0245,David Jackson,83,Male,Heart Disease,Recovery,84,172
+PT-0246,Mary Smith,74,Other,Asthma,Consultation,56,192
+PT-0247,Susan Garcia,25,Other,Smoking,Treatment,51,179
+PT-0248,Thomas Jones,73,Male,Diabetes,Completed,64,172
+PT-0249,Linda Thomas,62,Female,None,Recovery,106,151
+PT-0250,Charles Anderson,25,Female,Smoking,Treatment,108,152
+PT-0251,Jennifer Anderson,20,Other,None,Completed,85,184
+PT-0252,Charles Davis,50,Male,Heart Disease,Consultation,68,167
+PT-0253,Richard Hernandez,74,Female,Hypertension,Completed,106,174
+PT-0254,Charles Martinez,61,Female,Smoking,Treatment,119,153
+PT-0255,Patricia Smith,31,Male,None,Recovery,117,177
+PT-0256,Michael Hernandez,76,Male,Previous Implant Failure,Recovery,54,164
+PT-0257,Charles Miller,59,Other,Allergy to Penicillin,Treatment,78,162
+PT-0258,Karen Gonzales,38,Male,Diabetes,Treatment,97,165
+PT-0259,Linda Williams,65,Other,Asthma,Consultation,109,152
+PT-0260,Susan Brown,23,Female,Diabetes,Completed,69,177
+PT-0261,Charles Williams,55,Other,Heart Disease,Consultation,66,195
+PT-0262,Elizabeth Thomas,42,Male,Smoking,Recovery,76,153
+PT-0263,John Thomas,61,Female,Allergy to Penicillin,Consultation,103,155
+PT-0264,Mary Williams,78,Other,Smoking,Completed,100,173
+PT-0265,James Wilson,31,Other,Asthma,Consultation,119,177
+PT-0266,Jennifer Williams,56,Female,None,Treatment,103,173
+PT-0267,Richard Wilson,45,Female,Hypertension,Recovery,86,152
+PT-0268,Jessica Wilson,39,Female,Heart Disease,Completed,78,176
+PT-0269,Elizabeth Jackson,58,Other,Allergy to Penicillin,Treatment,117,161
+PT-0270,Susan Miller,64,Female,Allergy to Penicillin,Treatment,114,160
+PT-0271,Joseph Anderson,24,Male,Asthma,Treatment,84,184
+PT-0272,Patricia Williams,40,Other,Previous Implant Failure,Treatment,95,191
+PT-0273,Barbara Brown,61,Male,Asthma,Consultation,105,153
+PT-0274,David Anderson,60,Female,Asthma,Recovery,81,160
+PT-0275,Richard Jones,73,Female,None,Recovery,62,156
+PT-0276,Sarah Taylor,20,Other,Asthma,Treatment,102,150
+PT-0277,Charles Johnson,42,Male,None,Consultation,68,169
+PT-0278,David Jackson,53,Female,Heart Disease,Recovery,79,167
+PT-0279,Michael Wilson,64,Female,Hypertension,Recovery,105,178
+PT-0280,Thomas Johnson,55,Female,Asthma,Completed,57,157
+PT-0281,Barbara Wilson,60,Female,None,Consultation,50,189
+PT-0282,William Hernandez,72,Other,Smoking,Treatment,63,184
+PT-0283,Barbara Gonzales,54,Male,Smoking,Treatment,69,192
+PT-0284,Linda Brown,72,Female,Asthma,Completed,108,195
+PT-0285,John Anderson,75,Male,Hypertension,Consultation,74,170
+PT-0286,Robert Davis,71,Other,Diabetes,Completed,85,169
+PT-0287,David Jones,24,Male,Heart Disease,Treatment,83,153
+PT-0288,Elizabeth Brown,18,Female,Hypertension,Treatment,58,151
+PT-0289,Patricia Taylor,49,Female,Previous Implant Failure,Completed,61,158
+PT-0290,Charles Garcia,33,Female,None,Consultation,76,153
+PT-0291,Mary Brown,47,Other,Smoking,Recovery,62,174
+PT-0292,Jessica Moore,19,Female,Previous Implant Failure,Completed,107,156
+PT-0293,Patricia Davis,40,Other,Smoking,Completed,75,165
+PT-0294,Sarah Gonzales,31,Female,Diabetes,Treatment,114,163
+PT-0295,Robert Martin,77,Male,Hypertension,Treatment,95,157
+PT-0296,Jessica Jones,41,Female,Diabetes,Consultation,86,184
+PT-0297,William Martin,81,Other,Previous Implant Failure,Treatment,113,165
+PT-0298,Karen Davis,33,Female,Allergy to Penicillin,Treatment,86,175
+PT-0299,Barbara Brown,74,Male,Previous Implant Failure,Treatment,98,166
+PT-0300,William Martin,58,Male,None,Recovery,65,181
+PT-0301,Jessica Thomas,69,Male,Heart Disease,Consultation,119,176
+PT-0302,Karen Jackson,60,Male,Diabetes,Completed,83,180
+PT-0303,Robert Garcia,41,Male,Hypertension,Treatment,93,187
+PT-0304,Richard Moore,43,Other,Smoking,Treatment,104,152
+PT-0305,James Johnson,79,Other,Smoking,Recovery,117,161
+PT-0306,John Anderson,35,Other,None,Treatment,76,183
+PT-0307,Robert Garcia,81,Female,Asthma,Completed,98,167
+PT-0308,Patricia Taylor,82,Female,Hypertension,Treatment,58,189
+PT-0309,Karen Gonzales,45,Male,Asthma,Treatment,62,173
+PT-0310,Barbara Martinez,57,Other,Hypertension,Completed,72,154
+PT-0311,William Smith,80,Other,Smoking,Consultation,109,159
+PT-0312,Charles Jackson,77,Female,Hypertension,Completed,92,183
+PT-0313,Robert Taylor,48,Other,Previous Implant Failure,Treatment,82,158
+PT-0314,William Moore,79,Female,Hypertension,Recovery,76,174
+PT-0315,Barbara Miller,40,Other,Smoking,Completed,60,159
+PT-0316,Jessica Anderson,32,Other,None,Consultation,119,152
+PT-0317,Charles Lopez,66,Male,None,Completed,85,161
+PT-0318,Jennifer Lopez,64,Female,Heart Disease,Treatment,53,179
+PT-0319,Sarah Jackson,30,Other,Asthma,Completed,64,192
+PT-0320,Jennifer Brown,19,Other,Heart Disease,Completed,116,153
+PT-0321,Elizabeth Brown,75,Other,Smoking,Consultation,120,175
+PT-0322,John Brown,48,Female,Diabetes,Treatment,92,175
+PT-0323,Elizabeth Smith,65,Female,Allergy to Penicillin,Treatment,96,189
+PT-0324,Jennifer Martin,84,Other,Asthma,Consultation,56,152
+PT-0325,Joseph Taylor,23,Male,Heart Disease,Completed,94,183
+PT-0326,Robert Johnson,24,Female,None,Recovery,74,173
+PT-0327,Robert Anderson,76,Other,Asthma,Consultation,72,156
+PT-0328,Patricia Jones,67,Female,Previous Implant Failure,Treatment,100,172
+PT-0329,William Martin,34,Male,Asthma,Consultation,76,174
+PT-0330,Elizabeth Martinez,60,Male,Diabetes,Consultation,114,182
+PT-0331,Patricia Martin,37,Other,Previous Implant Failure,Completed,74,172
+PT-0332,Joseph Lopez,56,Male,Smoking,Completed,119,194
+PT-0333,Karen Thomas,29,Other,Heart Disease,Completed,114,156
+PT-0334,William Brown,48,Other,Diabetes,Treatment,88,158
+PT-0335,Sarah Anderson,38,Other,Asthma,Recovery,75,178
+PT-0336,Joseph Thomas,57,Other,Heart Disease,Consultation,98,182
+PT-0337,William Taylor,83,Female,Diabetes,Completed,109,188
+PT-0338,Patricia Moore,81,Female,Hypertension,Consultation,90,157
+PT-0339,Susan Garcia,48,Male,Diabetes,Consultation,102,159
+PT-0340,Sarah Anderson,68,Male,Hypertension,Recovery,78,171
+PT-0341,William Gonzales,31,Male,Heart Disease,Consultation,61,192
+PT-0342,Karen Gonzales,47,Other,Allergy to Penicillin,Treatment,63,184
+PT-0343,Robert Taylor,44,Male,Smoking,Consultation,119,184
+PT-0344,Barbara Anderson,50,Female,None,Recovery,96,155
+PT-0345,David Johnson,51,Male,Hypertension,Recovery,57,180
+PT-0346,Jennifer Williams,30,Other,Allergy to Penicillin,Treatment,90,182
+PT-0347,Jessica Taylor,74,Female,Heart Disease,Completed,62,191
+PT-0348,Linda Jackson,22,Other,Heart Disease,Consultation,56,177
+PT-0349,Sarah Miller,63,Male,Heart Disease,Consultation,103,158
+PT-0350,Mary Martin,56,Other,Allergy to Penicillin,Completed,108,195

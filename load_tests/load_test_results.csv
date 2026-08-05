@@ -1,0 +1,16 @@
+Test Configuration,
+Virtual Users,100 / sec
+Duration (s),60
+
+High-Level Metrics,
+Success Rate,100%
+Throughput (RPS),91
+Avg Response Time (ms),0.4
+
+Validation Criteria,Status
+Success Rate >= 90%,Passed
+Timeout Errors <= 20,Passed
+Connection Errors == 0,Passed
+Paraphrase Success >= 80%,N/A
+Average Response < 40000ms,Passed
+P95 Response Time < 150000ms,Passed

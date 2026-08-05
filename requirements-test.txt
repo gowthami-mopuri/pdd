@@ -1,0 +1,4 @@
+selenium
+webdriver-manager
+openpyxl
+Appium-Python-Client

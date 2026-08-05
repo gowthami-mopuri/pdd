@@ -1,0 +1,30 @@
+config:
+  target: 'http://localhost:3000'
+  phases:
+    - duration: 60
+      arrivalRate: 100
+      name: "Sustained load phase"
+  payload:
+    # path is relative to the directory where artillery is run
+    path: "test-data.csv"
+    fields:
+      - "patient_id"
+      - "name"
+      - "age"
+      - "gender"
+      - "medical_history"
+      - "status"
+      - "weight_kg"
+      - "height_cm"
+    order: "sequence"
+    skipHeader: true
+  plugins:
+    expect: {}
+
+scenarios:
+  - name: "API Request with Patient Data"
+    flow:
+      - get:
+          url: "/api/test?patient_id={{ patient_id }}&name={{ name }}&status={{ status }}"
+          expect:
+            - statusCode: 200

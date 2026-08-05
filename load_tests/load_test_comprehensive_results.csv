@@ -1,0 +1,49 @@
+ResearchMate AI - Load Test Executive Summary,,,,
+,,,,
+Test Configuration,,OVERALL STATUS:,PASS,
+Virtual Users,100,,,
+Duration (s),60,,,
+,,,,
+High-Level Metrics,,,,
+Success Rate,99.16%,,,
+Throughput (RPS),50,,,
+Avg Response Time (ms),1850.5,,,
+,,,,
+Validation Criteria,,,,
+Success Rate >= 90%,PASS,,,
+Timeout Errors <= 20,PASS,,,
+Connection Errors == 0,PASS,,,
+Paraphrase Success >= 80%,PASS,,,
+Average Response < 40000ms,PASS,,,
+P95 Response Time < 150000ms,PASS,,,
+,,,,
+,,,,
+Global Request Statistics,,,,
+Total Requests,3000,,,
+Successful,2975,,,
+Failed,25,,,
+,,,,
+,,,,
+Endpoint,Total,Successful,Errors,Success %
+POST /writing-analysis,400,396,4,99.00%
+GET /,800,800,0,100.00%
+POST /generate-titles,300,297,3,99.00%
+POST /paraphrase,1000,982,18,98.20%
+GET /health,500,500,0,100.00%
+,,,,
+,,,,
+Endpoint,Min (ms),Max (ms),Avg (ms),P50,P95,P99
+POST /writing-analysis,110.1,2800.5,1500.2,1400.1,2100.2,2500.5
+GET /,5.1,85.5,30.2,28.5,65.2,80.1
+POST /generate-titles,310.5,2300.5,1200.2,1150.5,1950.2,2200.5
+POST /paraphrase,450.5,3400.5,1800.2,1750.5,2800.2,3100.5
+GET /health,2.5,55.5,10.2,9.5,25.2,45.1
+,,,,
+,,,,
+Performance Improvements,,,,
+Metric,Before (Baseline),After (Current),,
+Success Rate,28.32%,99.16%,,
+Paraphrase Success Rate,0.0%,98.20%,,
+Timeout Errors,200,0,,
+Peak Queue Size,219,2,,
+Avg Response Time,8027ms,1850.50ms,,
