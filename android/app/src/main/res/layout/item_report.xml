@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/borderColor"
+    android:backgroundTint="@color/surfaceLight"
+    android:layout_marginBottom="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Top Header Row: Patient Name & ID + Risk Badge -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="14dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_report_patient_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Patient Name"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary" />
+
+                <TextView
+                    android:id="@+id/tv_report_patient_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID: PT-2024"
+                    android:textSize="12sp"
+                    android:textColor="@color/textSecondary"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_report_risk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🛡️ LOW RISK"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="#166534"
+                android:background="#DCFCE7"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/borderColor"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Stat Row 1: Survival Probability -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Survival Probability"
+                android:textSize="13sp"
+                android:textColor="@color/textSecondary" />
+
+            <TextView
+                android:id="@+id/tv_report_survival"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="84%"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#16A34A" />
+        </LinearLayout>
+
+        <!-- Stat Row 2: Date Saved -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="14dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Date Saved"
+                android:textSize="13sp"
+                android:textColor="@color/textSecondary" />
+
+            <TextView
+                android:id="@+id/tv_report_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="26/7/2026"
+                android:textSize="13sp"
+                android:textColor="@color/textPrimary" />
+        </LinearLayout>
+
+        <!-- Key Action Items Box -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:background="@drawable/bg_info_box"
+            android:layout_marginBottom="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KEY ACTION ITEMS"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:textColor="@color/textSecondary"
+                android:letterSpacing="0.05"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:id="@+id/tv_report_recommendations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="→ Smoking Cessation"
+                android:textSize="12sp"
+                android:textColor="@color/textPrimary"
+                android:lineSpacingMultiplier="1.3" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/borderColor"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Card Footer: Delete Report Action -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/tv_delete_report"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🗑️ Delete Report"
+                android:textSize="12sp"
+                android:textColor="#EF4444"
+                android:textStyle="bold"
+                android:padding="6dp"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

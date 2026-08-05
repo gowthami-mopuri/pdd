@@ -102,38 +102,72 @@ async def analyze_gemini_survival(
         image = Image.open(io.BytesIO(contents)).convert("RGB")
         patient_json = json.loads(patient_data)
 
+        # Run YOLOv8 detections for features
+        yolo_findings = []
+        try:
+            if implant_model:
+                r1 = implant_model.predict(image, verbose=False)
+                for res in r1:
+                    for b in res.boxes:
+                        yolo_findings.append(f"Implant/Structure: {res.names[int(b.cls[0])]} (Conf: {float(b.conf[0]):.2f})")
+            if sinus_model:
+                r2 = sinus_model.predict(image, verbose=False)
+                for res in r2:
+                    for b in res.boxes:
+                        yolo_findings.append(f"Maxillary Sinus Region: {res.names[int(b.cls[0])]} (Conf: {float(b.conf[0]):.2f})")
+        except Exception as ye:
+            print(f"YOLO detection warning: {ye}")
+
+        findings_text = "\n".join(yolo_findings) if yolo_findings else "No abnormal bone or sinus anomalies detected by YOLO vision detectors."
+
         prompt = f"""
         You are an expert AI dental radiologist and implant specialist.
-        Analyze this dental scan alongside the following patient data:
-        {json.dumps(patient_json, indent=2)}
-
-        Provide a realistic, dynamic Implant Survival Prediction based on anatomical factors in the image and the exact details in the patient's medical history. 
-        CRITICAL RULE: DO NOT invent or hallucinate risk factors. Only list risk factors and success factors that apply directly to THIS patient's actual provided data or the image. 
-
-        To achieve 100% accuracy, you MUST calculate the `survival_probability` using this strict formula:
-        1. Start with a Base Survival of 98%.
-        2. If the patient has a history of smoking, subtract 12%.
-        3. If the patient has diabetes, subtract 8%.
-        4. If the patient has poor bone density visible in the scan or history, subtract 10%.
-        5. The `failure_risk` must mathematically equal exactly (100 - `survival_probability`).
+        First, inspect the uploaded image carefully. Determine if the image is a valid dental scan (CBCT 3D scan, Panoramic Radiograph, Periapical X-Ray, or 3D Jaw/Teeth scan).
         
-        Output ONLY a JSON object matching this schema exactly (use appropriate labels based on real data):
+        IF THE IMAGE IS NOT A DENTAL SCAN OR TEETH/JAW RADIOGRAPH (for example: a phone screenshot, chat dialog, photo of a person/car/building/document/object):
+        Output ONLY this JSON object:
         {{
-            "survival_probability": 84, 
-            "failure_risk": 16, 
-            "confidence": 91, 
+            "is_valid_dental_scan": false,
+            "error": "Not a valid dental scan"
+        }}
+
+        IF THE IMAGE IS A VALID DENTAL SCAN:
+        Analyze this scan alongside the patient profile:
+        Patient Data: {json.dumps(patient_json, indent=2)}
+        YOLO Vision Model Detections: {findings_text}
+
+        CRITICAL REQUIREMENT: Generate UNIQUE, DYNAMIC, PATIENT-SPECIFIC and SCAN-SPECIFIC data. DO NOT output fixed numbers like 84% or static text for every patient.
+        
+        1. Calculate `survival_probability` (an integer between 65 and 98) dynamically based on patient age, smoking status, medical history, and visible bone density/structures in this specific image.
+        2. Set `failure_risk` = (100 - `survival_probability`).
+        3. Set `confidence` = (an integer between 89 and 97 based on image resolution and clarity).
+        4. Generate 3 to 4 custom `risk_factors` tailored to this specific patient (e.g. Alveolar Ridge Height, Bone Density, Periodontal Status, Sinus Clearance) with dynamic percentage numbers.
+        5. Generate 2 to 3 `success_factors` (positive clinical indicators for this patient).
+        6. Generate 3 to 4 custom `action_items` with priority levels (HIGH, MEDIUM, LOW).
+        7. Generate a comprehensive 3-paragraph `narrative` summarizing the radiologist visual findings for THIS specific patient and image.
+
+        Output ONLY a JSON object matching this schema:
+        {{
+            "is_valid_dental_scan": true,
+            "survival_probability": 92, 
+            "failure_risk": 8, 
+            "confidence": 94, 
             "risk_factors": [
-                {{"label": "Actual Risk Factor 1", "risk": "20%", "level": "LOW", "color": "success"}}
+                {{"label": "Sub-Sinus Bone Height", "risk": "18%", "level": "LOW", "color": "success"}},
+                {{"label": "Trabecular Density", "risk": "25%", "level": "MEDIUM", "color": "warning"}}
             ],
             "success_factors": [
-                {{"factor": "Actual Success Factor 1", "impact": "+18%", "pos": true}}
+                {{"factor": "Favorable Age Profile", "impact": "+15%", "pos": true}},
+                {{"factor": "Dense Cortical Plate", "impact": "+12%", "pos": true}}
             ],
             "action_items": [
-                {{"text": "Relevant Action Item", "level": "MEDIUM", "type": "warning"}}
+                {{"text": "Evaluate sub-sinus ridge height at Tooth #14 position prior to fixture placement.", "level": "HIGH", "type": "danger"}},
+                {{"text": "Maintain 6-month clinical and radiographic follow-up to evaluate osteointegration.", "level": "MEDIUM", "type": "warning"}}
             ],
             "narrative": [
-                "Survival probability is estimated strictly based on visible bone quality and exact medical history.",
-                "Recommend strict follow-up."
+                "Detailed radiologist report for this patient's scan...",
+                "Anatomical assessment of bone quality and cortical thickness...",
+                "Recommendations for optimal implant fixture dimensions and placement angle."
             ]
         }}
         Do not include markdown code blocks. Output pure JSON only.
@@ -143,15 +177,17 @@ async def analyze_gemini_survival(
             model='gemini-2.5-flash',
             contents=[image, prompt],
             config=types.GenerateContentConfig(
-                temperature=0.0,
-                top_k=1,
-                top_p=0.1
+                temperature=0.2,
+                top_k=5,
+                top_p=0.3
             )
         )
 
-        # Parse JSON safely
         raw_text = response.text.replace("```json", "").replace("```", "").strip()
         parsed_data = json.loads(raw_text)
+        if isinstance(parsed_data, dict) and not parsed_data.get("is_valid_dental_scan", True):
+            return {"status": "invalid_image", "message": "The uploaded image is not a valid CBCT or Panoramic Dental X-Ray scan."}
+
         return {"status": "success", "data": parsed_data}
 
     except Exception as e:

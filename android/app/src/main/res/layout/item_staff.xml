@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/borderColor"
+    android:backgroundTint="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Staff Member & Status Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/tv_staff_status">
+
+                <TextView
+                    android:id="@+id/tv_staff_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dr sanjith"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary" />
+
+                <TextView
+                    android:id="@+id/tv_staff_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:textSize="13sp"
+                    android:textColor="@color/textSecondary"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_staff_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="ACTIVE"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="#2563EB"
+                android:background="@drawable/bg_glass_panel"
+                android:backgroundTint="#EFF6FF"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp" />
+
+        </RelativeLayout>
+
+        <!-- Contact details divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/borderColor"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Contact Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tv_staff_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="asaisanjith@gmail.com"
+                android:textSize="13sp"
+                android:textColor="@color/textPrimary" />
+
+            <TextView
+                android:id="@+id/tv_staff_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9000948442"
+                android:textSize="13sp"
+                android:textColor="@color/textSecondary"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Actions Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/borderColor"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Actions -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <!-- Edit Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_edit_staff"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="Edit"
+                android:textSize="12sp"
+                android:textColor="#475569"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                app:strokeColor="#CBD5E1"
+                app:strokeWidth="1dp"
+                app:icon="@android:drawable/ic_menu_edit"
+                app:iconSize="14dp"
+                app:iconTint="#475569"
+                android:paddingHorizontal="12dp"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- Suspend Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_suspend_staff"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="Suspend"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:backgroundTint="#F59E0B"
+                app:icon="@android:drawable/ic_media_pause"
+                app:iconSize="14dp"
+                app:iconTint="@color/white"
+                android:paddingHorizontal="12dp"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- Delete Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_delete_staff"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="Delete"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:backgroundTint="#EF4444"
+                app:icon="@android:drawable/ic_menu_delete"
+                app:iconSize="14dp"
+                app:iconTint="@color/white"
+                android:paddingHorizontal="12dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Premium Healthcare Theme Colors (from index.css) -->
+    <color name="colorPrimary">#0D47A1</color> <!-- Deep Blue -->
+    <color name="colorPrimaryLight">#5472D3</color>
+    <color name="colorPrimaryDark">#002171</color>
+    
+    <color name="colorSecondary">#009688</color> <!-- Teal -->
+    <color name="colorSecondaryLight">#52C7B8</color>
+    <color name="colorSecondaryDark">#00675B</color>
+
+    <color name="colorAccent">#00BCD4</color> <!-- Cyan -->
+
+    <color name="colorSuccess">#4CAF50</color>
+    <color name="colorWarning">#FF9800</color>
+    <color name="colorDanger">#F44336</color>
+
+    <color name="backgroundLight">#F5F7FB</color>
+    <color name="surfaceLight">#FFFFFF</color>
+    
+    <color name="textPrimary">#1E293B</color>
+    <color name="textSecondary">#64748B</color>
+    <color name="textMuted">#94A3B8</color>
+    
+    <color name="borderColor">#E2E8F0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="glassBg">#B3FFFFFF</color> <!-- 70% transparent white for glassmorphism -->
+    <color name="glassBorder">#33FFFFFF</color> <!-- 20% transparent white -->
+</resources>

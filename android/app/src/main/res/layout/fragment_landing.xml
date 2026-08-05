@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_landing_gradient"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Top Header / App Branding -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="40dp">
+
+            <!-- Hexagon Logo Icon -->
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_hexagon_outline"
+                android:contentDescription="ImplantAI Logo"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ImplantAI"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                android:textColor="@color/textPrimary"
+                android:letterSpacing="-0.02" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Predictive Dental Implant Analytics"
+                android:textSize="15sp"
+                android:textColor="@color/textSecondary"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select your role to access the clinic portal"
+                android:textSize="13sp"
+                android:textColor="@color/textMuted"
+                android:layout_marginTop="12dp" />
+
+        </LinearLayout>
+
+        <!-- Role Selection Options Stack -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="32dp">
+
+            <!-- Administrator Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_admin_portal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/borderColor"
+                android:backgroundTint="@color/surfaceLight"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:gravity="center_horizontal">
+
+                    <!-- Shield Check Icon -->
+                    <ImageView
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:src="@drawable/ic_shield_check"
+                        android:background="@drawable/bg_glass_panel"
+                        android:backgroundTint="@color/backgroundLight"
+                        android:padding="12dp"
+                        android:layout_marginBottom="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Administrator"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/textPrimary"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="System control, staff management &amp; settings"
+                        android:textSize="13sp"
+                        android:textColor="@color/textSecondary"
+                        android:gravity="center"
+                        android:layout_marginBottom="16dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_admin_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Admin Login"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:textColor="@color/textPrimary"
+                        app:strokeColor="@color/borderColor"
+                        app:cornerRadius="12dp"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Clinical Staff Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_doctor_portal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/borderColor"
+                android:backgroundTint="@color/surfaceLight"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:gravity="center_horizontal">
+
+                    <!-- Stethoscope Icon -->
+                    <ImageView
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:src="@drawable/ic_stethoscope"
+                        android:background="@drawable/bg_glass_panel"
+                        android:backgroundTint="@color/backgroundLight"
+                        android:padding="12dp"
+                        android:layout_marginBottom="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Clinical Staff"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/textPrimary"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dentists &amp; specialists running AI survival analysis"
+                        android:textSize="13sp"
+                        android:textColor="@color/textSecondary"
+                        android:gravity="center"
+                        android:layout_marginBottom="16dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_doctor_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Staff Login"
+                        style="@style/ButtonPrimary"
+                        android:backgroundTint="@color/colorPrimary"
+                        app:cornerRadius="12dp"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Patient Portal Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_patient_portal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/borderColor"
+                android:backgroundTint="@color/surfaceLight"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:gravity="center_horizontal">
+
+                    <!-- User Icon -->
+                    <ImageView
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:src="@drawable/ic_user_outline"
+                        android:background="@drawable/bg_glass_panel"
+                        android:backgroundTint="@color/backgroundLight"
+                        android:padding="12dp"
+                        android:layout_marginBottom="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Patient Portal"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/textPrimary"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View your personal dental implant reports &amp; records"
+                        android:textSize="13sp"
+                        android:textColor="@color/textSecondary"
+                        android:gravity="center"
+                        android:layout_marginBottom="16dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_patient_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Patient Access"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:textColor="@color/textPrimary"
+                        app:strokeColor="@color/borderColor"
+                        app:cornerRadius="12dp"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!-- Footer Notice -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Powered by Dental AI &amp; Google Gemini Engine"
+            android:textSize="12sp"
+            android:textColor="@color/textMuted"
+            android:layout_marginBottom="24dp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

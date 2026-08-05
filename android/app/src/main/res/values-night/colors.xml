@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark Mode Color Palette -->
+    <color name="colorPrimary">#3B82F6</color>
+    <color name="colorPrimaryLight">#60A5FA</color>
+    <color name="colorPrimaryDark">#1D4ED8</color>
+    
+    <color name="colorSecondary">#14B8A6</color>
+    <color name="colorSecondaryLight">#2DD4BF</color>
+    <color name="colorSecondaryDark">#0F766E</color>
+
+    <color name="colorAccent">#38BDF8</color>
+
+    <color name="colorSuccess">#22C55E</color>
+    <color name="colorWarning">#F59E0B</color>
+    <color name="colorDanger">#EF4444</color>
+
+    <color name="backgroundLight">#0F172A</color>
+    <color name="surfaceLight">#1E293B</color>
+    
+    <color name="textPrimary">#F8FAFC</color>
+    <color name="textSecondary">#94A3B8</color>
+    <color name="textMuted">#64748B</color>
+    
+    <color name="borderColor">#334155</color>
+    <color name="white">#1E293B</color>
+    <color name="black">#FFFFFF</color>
+    <color name="glassBg">#331E293B</color>
+    <color name="glassBorder">#33334155</color>
+</resources>

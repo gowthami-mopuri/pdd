@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundLight"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Top Avatar and Bio Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp"
+            android:elevation="2dp">
+
+            <TextView
+                android:id="@+id/tv_avatar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/bg_button_primary"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="P"
+                android:textSize="24sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginEnd="16dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_profile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Patient Name"
+                    style="@style/Heading2"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_profile_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PT-2026-001 • 45 yrs, Male"
+                    style="@style/MutedText"
+                    android:layout_marginTop="2dp" />
+
+                <TextView
+                    android:id="@+id/tv_profile_visit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Last Visit: 2026-07-25 • Status: Consultation"
+                    style="@style/MutedText"
+                    android:layout_marginTop="2dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Overview Section Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:elevation="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Treatment Summary"
+                style="@style/Heading3"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tv_summary_implant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Target Site: Maxilla (Tooth 14)\n• Implant: Titanium - 4.5x10mm\n• Bone Quality: Adequate Bone Quality (Class D2)"
+                style="@style/BodyText"
+                android:textColor="@color/textPrimary"
+                android:lineSpacingMultiplier="1.2" />
+
+        </LinearLayout>
+
+        <!-- Medical History Tag Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:elevation="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medical &amp; Lifestyle History"
+                style="@style/Heading3"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tv_history_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Smoking Status: Heavy Smoker (15 Pack Years)\n• Diabetes: Controlled Diabetes (HbA1c: 6.8%)\n• Other Conditions: Periodontal Disease"
+                style="@style/BodyText"
+                android:textColor="@color/textPrimary"
+                android:lineSpacingMultiplier="1.2" />
+
+        </LinearLayout>
+
+        <!-- AI Prediction Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginBottom="24dp"
+            android:elevation="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AI Survival Prediction"
+                style="@style/Heading3"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tv_prediction_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No prediction has been run for this patient profile yet."
+                style="@style/BodyText"
+                android:textColor="@color/textSecondary"
+                android:layout_marginBottom="16dp" />
+
+            <ProgressBar
+                android:id="@+id/prediction_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Prediction Results layout (Initially hidden) -->
+            <LinearLayout
+                android:id="@+id/ll_prediction_results"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Survival Probability:"
+                        style="@style/BodyText"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_survival_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="84.5%"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorWarning" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Implant Failure Risk:"
+                        style="@style/BodyText" />
+
+                    <TextView
+                        android:id="@+id/tv_failure_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="15.5%"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorDanger" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Risk Category:"
+                        style="@style/BodyText" />
+
+                    <TextView
+                        android:id="@+id/tv_risk_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MEDIUM RISK"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorWarning" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="System Recommendations:"
+                    android:textStyle="bold"
+                    style="@style/BodyText"
+                    android:layout_marginBottom="6dp" />
+
+                <TextView
+                    android:id="@+id/tv_recs_bullet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Tight glycemic control\n• Smoking cessation support"
+                    style="@style/BodyText"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Sync to patient portal button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_sync_report"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Publish Report to Patient Portal"
+                    style="@style/ButtonSecondary"
+                    app:icon="@android:drawable/stat_notify_chat"
+                    android:layout_marginBottom="12dp" />
+
+            </LinearLayout>
+
+            <!-- Action Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_run_prediction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Run AI Survival Prediction"
+                style="@style/ButtonPrimary"
+                app:icon="@android:drawable/ic_popup_sync" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

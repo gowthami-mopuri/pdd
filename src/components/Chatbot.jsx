@@ -32,7 +32,7 @@ const Chatbot = ({ patients, selectedPatient }) => {
 
     try {
       const API_URL = import.meta.env.VITE_API_URL || (Capacitor.isNativePlatform() ? 'http://10.0.2.2:8000' : 'http://localhost:8000');
-      const response = await fetch(`${API_URL}/analyze/gemini-chat`, {
+      const response = await fetch(`${API_URL}/chat/personalized`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -23,3 +23,17 @@ dist-ssr
 *.sln
 *.sw?
 ml-engine/.env
+
+# Android signing keys - never commit
+*.keystore
+*.jks
+
+# Build artifacts
+*.apk
+*.aab
+android/app/release/
+
+# Local test reports
+*.xlsx
+__pycache__/
+*.pyc

@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_landing_gradient"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Top Navigation Links Row -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <!-- Back to Roles link -->
+            <TextView
+                android:id="@+id/btn_back_to_roles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="← Back to Roles"
+                android:textSize="12sp"
+                android:textColor="@color/textSecondary"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:background="@drawable/bg_glass_panel"
+                android:backgroundTint="#F8FAFC"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <!-- Logout link -->
+            <TextView
+                android:id="@+id/btn_sign_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="Logout"
+                android:textSize="12sp"
+                android:textColor="@color/colorDanger"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:background="@drawable/bg_glass_panel"
+                android:backgroundTint="#FFF1F2"
+                android:clickable="true"
+                android:focusable="true"/>
+
+        </RelativeLayout>
+
+        <!-- Dashboard Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Admin Dashboard"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="@color/textPrimary"
+                android:letterSpacing="-0.02" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create and manage detailed staff accounts."
+                android:textSize="14sp"
+                android:textColor="@color/textSecondary"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+        <!-- Status / Message banner -->
+        <TextView
+            android:id="@+id/tv_admin_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_glass_panel"
+            android:backgroundTint="#22C55E"
+            android:padding="12dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:visibility="gone" />
+
+        <!-- Card 1: Create User Profile -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/borderColor"
+            android:backgroundTint="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Header block -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="20dp">
+
+                    <!-- UserPlus Icon -->
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_user_outline"
+                        android:background="@drawable/bg_glass_panel"
+                        android:backgroundTint="#EFF6FF"
+                        android:padding="8dp"
+                        android:layout_marginEnd="12dp"
+                        app:tint="#2563EB" />
+
+                    <TextView
+                        android:id="@+id/tv_form_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Create User Profile"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/textPrimary" />
+
+                </LinearLayout>
+
+                <!-- Username Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Username *"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="6dp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:hint="e.g. drsmith"
+                    android:textSize="14sp"
+                    android:textColor="@color/textPrimary"
+                    android:paddingHorizontal="12dp"
+                    android:background="@drawable/bg_glass_panel"
+                    android:backgroundTint="#F8FAFC"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Email Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email Address *"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="6dp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:hint="e.g. drsmith@clinic"
+                    android:textSize="14sp"
+                    android:textColor="@color/textPrimary"
+                    android:paddingHorizontal="12dp"
+                    android:background="@drawable/bg_glass_panel"
+                    android:backgroundTint="#F8FAFC"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Phone Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone Number"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="6dp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:hint="e.g. +1 555-0123"
+                    android:textSize="14sp"
+                    android:textColor="@color/textPrimary"
+                    android:paddingHorizontal="12dp"
+                    android:background="@drawable/bg_glass_panel"
+                    android:backgroundTint="#F8FAFC"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Gender Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="6dp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:hint="Select gender..."
+                    android:textSize="14sp"
+                    android:textColor="@color/textPrimary"
+                    android:paddingHorizontal="12dp"
+                    android:background="@drawable/bg_glass_panel"
+                    android:backgroundTint="#F8FAFC"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="none"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Date of Birth Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date of Birth"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="6dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:background="@drawable/bg_glass_panel"
+                    android:backgroundTint="#F8FAFC"
+                    android:paddingHorizontal="12dp"
+                    android:layout_marginBottom="16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_dob"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toStartOf="@+id/iv_calendar_icon"
+                        android:background="@null"
+                        android:hint="dd-mm-yyyy"
+                        android:textSize="14sp"
+                        android:textColor="@color/textPrimary"
+                        android:focusable="false"
+                        android:clickable="true"
+                        android:inputType="none" />
+
+                    <ImageView
+                        android:id="@+id/iv_calendar_icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@android:drawable/ic_menu_my_calendar"
+                        app:tint="@color/textSecondary" />
+                </RelativeLayout>
+
+                <!-- Address Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="6dp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:hint="Enter full address..."
+                    android:textSize="14sp"
+                    android:textColor="@color/textPrimary"
+                    android:padding="12dp"
+                    android:gravity="top"
+                    android:background="@drawable/bg_glass_panel"
+                    android:backgroundTint="#F8FAFC"
+                    android:inputType="textMultiLine"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Password Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Password *"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="6dp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:hint="Create password"
+                    android:textSize="14sp"
+                    android:textColor="@color/textPrimary"
+                    android:paddingHorizontal="12dp"
+                    android:background="@drawable/bg_glass_panel"
+                    android:backgroundTint="#F8FAFC"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Confirm Password Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Re-enter Password *"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginBottom="6dp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_confirm_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:hint="Confirm password"
+                    android:textSize="14sp"
+                    android:textColor="@color/textPrimary"
+                    android:paddingHorizontal="12dp"
+                    android:background="@drawable/bg_glass_panel"
+                    android:backgroundTint="#F8FAFC"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:layout_marginBottom="24dp"/>
+
+                <!-- Buttons Layout -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_reset"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cancel"
+                        android:textColor="#475569"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_marginEnd="12dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_save_user"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Create Account"
+                        style="@style/ButtonPrimary"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        app:cornerRadius="8dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Card 2: Registered Staff Accounts -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/borderColor"
+            android:backgroundTint="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Header block -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="20dp">
+
+                    <!-- Users Icon -->
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_user_outline"
+                        android:background="@drawable/bg_glass_panel"
+                        android:backgroundTint="#EFF6FF"
+                        android:padding="8dp"
+                        android:layout_marginEnd="12dp"
+                        app:tint="#2563EB" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Registered Staff"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/textPrimary" />
+
+                </LinearLayout>
+
+                <!-- Loading State -->
+                <ProgressBar
+                    android:id="@+id/admin_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="24dp"
+                    android:visibility="gone" />
+
+                <!-- Empty State -->
+                <TextView
+                    android:id="@+id/tv_admin_empty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No staff accounts found."
+                    android:textSize="14sp"
+                    android:textColor="@color/textSecondary"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:layout_margin="24dp" />
+
+                <!-- List view -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_staff_accounts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
