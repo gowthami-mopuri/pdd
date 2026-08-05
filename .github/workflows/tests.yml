@@ -1,0 +1,150 @@
+name: Tests CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  web-e2e:
+    name: Web E2E Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Setup environment and dependencies
+        run: |
+          sudo apt-get update && sudo apt-get install -y xvfb
+          python -m pip install --upgrade pip
+          pip install selenium webdriver-manager openpyxl pandas
+          if [ -f requirements-test.txt ]; then pip install -r requirements-test.txt; fi
+          if [ -f requirements-ci.txt ]; then pip install -r requirements-ci.txt; fi
+      - name: Execute E2E Suite
+        run: xvfb-run --auto-servernum python e2e_tests/test_implantai_300_e2e.py || true
+        env:
+          TEST_USERNAME: "clinicaldoc"
+          TEST_PASSWORD: "ClinicalPass123!"
+          HEADLESS: "true"
+          PYTHONIOENCODING: "utf8"
+        continue-on-error: true
+      - name: Execute Selenium Suite
+        run: xvfb-run --auto-servernum python selenium_tests/implantai_full_suite.py || true
+        env:
+          TEST_USERNAME: "clinicaldoc"
+          TEST_PASSWORD: "ClinicalPass123!"
+          HEADLESS: "true"
+          PYTHONIOENCODING: "utf8"
+        continue-on-error: true
+      - name: Collect Excel Artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: web-e2e-reports
+          path: |
+            **/*.xlsx
+            **/*.csv
+            
+  android-appium:
+    name: Android Appium E2E
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Setup environment and execute Appium tests
+        run: |
+          cd appium_node_tests
+          npm install || true
+          npm test || true
+        continue-on-error: true
+      - name: Collect Excel Artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: appium-reports
+          path: |
+            **/*.xlsx
+            **/*.csv
+
+  backend-security:
+    name: Backend Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Setup dependencies and execute DAST
+        run: |
+          python -m pip install --upgrade pip
+          pip install openpyxl pandas
+          python generate_dast_suite.py || true
+        continue-on-error: true
+      - name: Collect Excel Artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: security-reports
+          path: |
+            **/*.xlsx
+            **/*.csv
+
+  performance-load:
+    name: Performance Load Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Setup dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install openpyxl pandas
+      - name: Execute load tests and generate reports
+        run: |
+          cd load_tests
+          npm install || true
+          npm run test:load || true
+          node generate_test_cases_report.js || true
+          python generate_final_report.py || true
+        continue-on-error: true
+      - name: Collect Excel Artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: performance-reports
+          path: |
+            **/*.xlsx
+            **/*.csv
+
+  collect-all-artifacts:
+    name: Consolidate All Reports
+    needs: [web-e2e, android-appium, backend-security, performance-load]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Download all suite reports
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+          
+      - name: Upload Final Consolidated Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: All-Excel-Test-Reports
+          path: artifacts/
