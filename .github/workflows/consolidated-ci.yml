@@ -22,19 +22,19 @@ jobs:
         with:
           python-version: "3.10"
       - run: |
+          sudo apt-get update && sudo apt-get install -y xvfb
           python -m pip install --upgrade pip
           pip install selenium webdriver-manager openpyxl pandas
           if [ -f requirements-test.txt ]; then pip install -r requirements-test.txt; fi
           if [ -f requirements-ci.txt ]; then pip install -r requirements-ci.txt; fi
       - run: |
-          python e2e_tests/test_implantai_300_e2e.py || echo "E2E tests failed"
-          python selenium_tests/implantai_full_suite.py || echo "Selenium suite failed"
+          xvfb-run --auto-servernum python e2e_tests/test_implantai_300_e2e.py || echo "E2E tests failed"
+          xvfb-run --auto-servernum python selenium_tests/implantai_full_suite.py || echo "Selenium suite failed"
         env:
           TEST_USERNAME: "clinicaldoc"
           TEST_PASSWORD: "ClinicalPass123!"
           HEADLESS: "true"
           PYTHONIOENCODING: "utf8"
-        continue-on-error: true
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -55,7 +55,6 @@ jobs:
           cd appium_node_tests
           npm install
           npm test || echo "Appium tests failed"
-        continue-on-error: true
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -76,7 +75,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install openpyxl pandas
           python generate_dast_suite.py || echo "Security scan failed"
-        continue-on-error: true
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -103,8 +101,8 @@ jobs:
           cd load_tests
           npm install
           npm run test:load || echo "Load tests failed"
-          python generate_final_report.py || echo "Final report generation failed"
-        continue-on-error: true
+          node generate_test_cases_report.js || echo "JS report failed"
+          python generate_final_report.py || echo "Python report failed"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -123,6 +121,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: all-reports
+          merge-multiple: true
           
       - name: Generate Unified HTML Report
         run: |
@@ -130,12 +129,16 @@ jobs:
           echo "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><title>Consolidated Test Reports</title>" > public/index.html
           echo "<style>body{font-family:sans-serif;margin:40px;background:#f5f5f5;} .card{background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.1);max-width:800px;margin:auto;} h1{color:#333;text-align:center;} ul{list-style:none;padding:0;} li{margin:10px 0;padding:10px;background:#e9ecef;border-radius:4px;} a{text-decoration:none;color:#007bff;font-weight:bold;} a:hover{text-decoration:underline;}</style>" >> public/index.html
           echo "</head><body><div class=\"card\"><h1>Unified Test Reports</h1><ul>" >> public/index.html
-          find all-reports -type f | while read file; do
-            filename=$(basename "$file")
-            # Flatten into public dir
-            cp "$file" "public/$filename"
-            echo "<li><a href=\"$filename\" download>$filename</a></li>" >> public/index.html
-          done
+          
+          # Iterate and copy all downloaded artifacts
+          if [ -d "all-reports" ]; then
+            find all-reports -type f | while read file; do
+              filename=$(basename "$file")
+              cp "$file" "public/$filename"
+              echo "<li><a href=\"$filename\" download>$filename</a></li>" >> public/index.html
+            done
+          fi
+          
           echo "</ul></div></body></html>" >> public/index.html
 
       - name: Upload HTML-Test-Reports artifact
