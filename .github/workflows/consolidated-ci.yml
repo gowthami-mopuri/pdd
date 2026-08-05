@@ -33,6 +33,7 @@ jobs:
           TEST_USERNAME: "clinicaldoc"
           TEST_PASSWORD: "ClinicalPass123!"
           HEADLESS: "true"
+          PYTHONIOENCODING: "utf8"
         continue-on-error: true
       - uses: actions/upload-artifact@v4
         if: always()
@@ -73,7 +74,7 @@ jobs:
           python-version: "3.10"
       - run: |
           python -m pip install --upgrade pip
-          pip install openpyxl
+          pip install openpyxl pandas
           python generate_dast_suite.py || echo "Security scan failed"
         continue-on-error: true
       - uses: actions/upload-artifact@v4
@@ -92,10 +93,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - run: |
+          python -m pip install --upgrade pip
+          pip install openpyxl pandas
       - run: |
           cd load_tests
           npm install
           npm run test:load || echo "Load tests failed"
+          python generate_final_report.py || echo "Final report generation failed"
         continue-on-error: true
       - uses: actions/upload-artifact@v4
         if: always()
