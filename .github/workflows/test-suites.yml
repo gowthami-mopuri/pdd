@@ -1,0 +1,84 @@
+name: Comprehensive Test Suites
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test-suites:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Run Selenium Web Testing
+      continue-on-error: true
+      run: |
+        cd selenium_web_tests
+        npm install
+        npx mocha tests/e2e.test.js
+
+    - name: Run Appium Mobile Testing
+      continue-on-error: true
+      run: |
+        cd appium_mobile_tests
+        npm install
+        npx mocha tests/mobile_e2e.test.js
+
+    - name: Run Load Testing
+      continue-on-error: true
+      run: |
+        cd load_testing
+        npm install
+        python dummy_api.py &
+        # Give dummy server a second to start
+        sleep 2
+        node load_runner.js
+
+    - name: Run DAST Testing
+      continue-on-error: true
+      run: |
+        cd dast_testing
+        pip install openpyxl
+        python generate_dast.py
+
+    - name: Upload Selenium Report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: Selenium-Web-Report
+        path: selenium_web_tests/*.xlsx
+
+    - name: Upload Appium Report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: Appium-Mobile-Report
+        path: appium_mobile_tests/*.xlsx
+
+    - name: Upload Load Testing Report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: Load-Testing-Report
+        path: load_testing/*.xlsx
+
+    - name: Upload DAST Report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: DAST-Testing-Report
+        path: dast_testing/*.xlsx
