@@ -55,8 +55,10 @@ public class DashboardFragment extends Fragment implements PatientAdapter.OnPati
         StaffAccount doctor = sessionManager.getDoctor();
 
         tvWelcome = view.findViewById(R.id.tv_welcome);
-        if (doctor != null) {
+        if (doctor != null && doctor.getUsername() != null && !doctor.getUsername().isEmpty()) {
             tvWelcome.setText("Welcome back, Dr. " + doctor.getUsername());
+        } else {
+            tvWelcome.setText("Welcome back, Doctor");
         }
 
         tvTotalPatients = view.findViewById(R.id.tv_stat_total_patients);

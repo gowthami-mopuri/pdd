@@ -8,8 +8,17 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const [patients, setPatients] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
+    const storedUser = localStorage.getItem('doctorUser');
+    if (storedUser) {
+      try {
+        setUser(JSON.parse(storedUser));
+      } catch (err) {
+        console.error('Failed to parse doctorUser session:', err);
+      }
+    }
     fetchDashboardData();
   }, []);
 
@@ -34,11 +43,13 @@ const Dashboard = () => {
   const pendingRiskCount = patients.filter(p => p.risk === 'Pending' || !p.risk).length;
   const consultations = patients.filter(p => p.status === 'Consultation').length;
 
+  const doctorDisplayName = user?.username || user?.full_name || user?.email || 'Doctor';
+
   return (
     <div className="dashboard">
       <div className="welcome-banner glass-panel">
         <div>
-          <h2>Welcome back, Dr. Jenkins</h2>
+          <h2>Welcome back, Dr. {doctorDisplayName}</h2>
           <p className="text-muted">Here is the latest data from your patient directory.</p>
         </div>
         <button className="btn btn-primary" onClick={() => navigate('/patients/add')}>

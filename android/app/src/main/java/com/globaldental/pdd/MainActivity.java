@@ -5,12 +5,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.getcapacitor.BridgeActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BridgeActivity {
 
     private BottomNavigationView bottomNav;
     private View appHeaderInclude;
@@ -50,50 +50,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        com.globaldental.pdd.util.SessionManager sm = new com.globaldental.pdd.util.SessionManager(this);
-        androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(
-            sm.isDarkMode() ? androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES : androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
-        );
-
-        super.onCreate(savedInstanceState);
-        // No title bar / action bar
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
-        }
-        setContentView(R.layout.activity_main);
-
-        appHeaderInclude = findViewById(R.id.app_header_include);
-        headerDivider    = findViewById(R.id.header_divider);
-        headerTitle      = findViewById(R.id.header_title);
-        headerUserName   = findViewById(R.id.header_user_name);
-        headerUserRole   = findViewById(R.id.header_user_role);
-        headerAvatar     = findViewById(R.id.header_avatar);
-
-        bottomNav = findViewById(R.id.bottom_nav);
-        bottomNav.setOnItemSelectedListener(bottomNavListener);
-
-        // Settings icon click
-        View settingsIcon = findViewById(R.id.header_settings);
-        if (settingsIcon != null) {
-            settingsIcon.setOnClickListener(v ->
-                loadFragment(new com.globaldental.pdd.ui.settings.SettingsPageFragment()));
-        }
-
-        // Profile chip click → open My Profile
-        View profileChip = findViewById(R.id.header_profile_chip);
-        if (profileChip != null) {
-            profileChip.setOnClickListener(v ->
-                loadFragment(new com.globaldental.pdd.ui.profile.MyProfileFragment()));
-        }
-
-        // Load Landing page on startup
-        if (savedInstanceState == null) {
-            loadFragment(new com.globaldental.pdd.ui.auth.LandingFragment());
-        }
-    }
-
     public void replaceFragment(Fragment fragment) {
         loadFragment(fragment);
     }
@@ -104,10 +60,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Update the user info shown in the header chip.
-     * Call this after a successful login with the logged-in user's name and role.
-     */
     public void updateHeaderUser(String name, String role) {
         if (headerUserName != null) headerUserName.setText(name);
         if (headerUserRole != null) headerUserRole.setText(role);
@@ -116,19 +68,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // ---- Compatibility stubs (kept so existing fragments compile) ----
-    /** @deprecated Use showAppHeader() instead */
     public void showNavigationDrawer(boolean show) {
-        // No-op: drawer has been replaced by the custom white header
         showAppHeader(show);
         showBottomNavigation(show);
     }
 
-    /** @deprecated Use setHeaderTitle() instead */
     public void setToolbarTitle(String title) {
         setHeaderTitle(title);
     }
-    // ------------------------------------------------------------------
 
     public void showAppHeader(boolean show) {
         if (appHeaderInclude != null) {
@@ -143,6 +90,16 @@ public class MainActivity extends AppCompatActivity {
         if (bottomNav != null) {
             bottomNav.setVisibility(show ? View.VISIBLE : View.GONE);
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        com.globaldental.pdd.util.SessionManager sm = new com.globaldental.pdd.util.SessionManager(this);
+        androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(
+            sm.isDarkMode() ? androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES : androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
+        );
+
+        super.onCreate(savedInstanceState);
     }
 
     private void loadFragment(Fragment fragment) {
@@ -189,10 +146,5 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.main_content_frame, fragment);
         transaction.commit();
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
     }
 }

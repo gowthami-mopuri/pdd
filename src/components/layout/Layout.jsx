@@ -82,9 +82,9 @@ const Layout = () => {
               onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
               title="View My Profile"
             >
-              <div className="avatar">Dr</div>
+              <div className="avatar">{user && (user.username || user.full_name) ? (user.username || user.full_name).substring(0, 2).toUpperCase() : 'Dr'}</div>
               <div className="user-info">
-                <span className="user-name">Dr. {user ? user.username : 'Jenkins'}</span>
+                <span className="user-name">Dr. {user ? (user.username || user.full_name || 'Doctor') : 'Doctor'}</span>
                 <span className="user-role">Clinical Staff</span>
               </div>
             </div>
